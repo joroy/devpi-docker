@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER Jonathan Roy <jonathan.roy@cadensimaging.com>
+MAINTAINER Jonathan Roy <joroy2@gmail.com>
 
 #RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe multiverse" > /etc/apt/sources.list \ 
 # && apt-get update -qq
@@ -24,4 +24,5 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 ADD supervisor.conf /etc/supervisor/conf.d/devpi.conf
 
 EXPOSE 80
+VOLUME /opt/devpi/data
 CMD /usr/bin/supervisord -n
